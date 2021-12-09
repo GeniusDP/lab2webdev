@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint:check": "npx eslint  server/*.js --ignore-path .gitignore --no-error-on-unmatched-pattern",
+    "lint:fix": "npx eslint --fix server/*.js --ignore-path .gitignore --no-error-on-unmatched-pattern",
+    "format:check": "npx prettier --check . --ignore-path .gitignore",
+    "format:fix": "npx prettier --write . --ignore-path .gitignore"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
