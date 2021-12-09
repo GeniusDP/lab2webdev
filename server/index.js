@@ -84,9 +84,9 @@ app.post("/send_info", (request, response) => {
         console.log(requiredInfo);
         mailer.send();
         IPAddressesAndTimers.set(ip, Date.now());
-        response.status(200).send({ permission: "yes", sent: true });
+        response.status(200).send({ permission: "yes, sir!", sent: true });
     } else {
-        response.status(429).send({ permission: "no", sent: false });
+        response.status(429).send({ permission: "no, sir!", sent: false });
     }
 });
 
