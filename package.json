@@ -9,8 +9,8 @@
         "build": "npm install --prefix ./client && npm run build --prefix ./client",
         "lint:check": "npx eslint  server/*.js --ignore-path .gitignore --no-error-on-unmatched-pattern",
         "lint:fix": "npx eslint --fix server/*.js --ignore-path .gitignore --no-error-on-unmatched-pattern",
-        "format:check": "npx prettier --check . --ignore-path .gitignore",
-        "format:fix": "npx prettier --write . --ignore-path .gitignore",
+        "format:check": "npx prettier --check . --ignore-path .gitignore --no-error-on-unmatched-pattern",
+        "format:fix": "npx prettier --write . --ignore-path .gitignore --no-error-on-unmatched-pattern",
         "browser_sync": "browser-sync start --server --files \"php/*.php,css/*.css,js/*.js,html/*.html,*.*\"",
         "prepare": "husky install"
     },
