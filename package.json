@@ -12,6 +12,7 @@
         "format:check": "npx prettier --check . --ignore-path .gitignore --no-error-on-unmatched-pattern",
         "format:fix": "npx prettier --write . --ignore-path .gitignore --no-error-on-unmatched-pattern",
         "browser_sync": "browser-sync start --server --files \"php/*.php,css/*.css,js/*.js,html/*.html,*.*\"",
+        "format": "npm run format:fix && npm run format:check",
         "prepare": "husky install"
     },
     "dependencies": {

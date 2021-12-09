@@ -12,4 +12,4 @@ jobs:
               with:
                   node-version: 14
                   cache: "npm"
-            - run: npm ci && npm run lint:check && npm run format:fix && npm run format:check
+            - run: npm ci && npm run lint:check && npm run format
