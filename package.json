@@ -1,34 +1,34 @@
 {
-  "name": "lab2web",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node server/index.js",
-    "dev": "nodemon server/index.js",
-    "build": "npm install --prefix ./client && npm run build --prefix ./client",
-    "lint:check": "npx eslint **/*.js --ignore-path .gitignore --ignore-path  .prettierrc.json --ignore-path  .eslintrc.json --no-error-on-unmatched-pattern",
-    "lint:fix": "npx eslint --fix **/*.js --ignore-path .gitignore --ignore-path  .prettierrc.json --ignore-path  .eslintrc.json --no-error-on-unmatched-pattern",
-    "format:check": "npx prettier --check . --ignore-path .gitignore --ignore-path  .prettierrc.json --ignore-path  .eslintrc.json",
-    "format:fix": "npx prettier --write . --ignore-path .gitignore --ignore-path  .prettierrc.json --ignore-path  .eslintrc.json",
-    "browser_sync": "browser-sync start --server --files \"php/*.php,css/*.css,js/*.js,html/*.html,*.*\""
-  },
-  "dependencies": {
-    "dotenv": "^10.0.0",
-    "eslint-config-metarhia": "^7.0.1",
-    "eslint-plugin-import": "^2.24.2",
-    "express": "^4.17.1",
-    "nodemailer": "^6.7.0",
-    "path": "^0.12.7"
-  },
-  "devDependencies": {
-    "eslint": "^7.32.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-sonarjs": "^0.11.0",
-    "prettier": "^2.5.1",
-    "nodemon": "^2.0.15"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+    "name": "lab2web",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node server/index.js",
+        "dev": "nodemon server/index.js",
+        "build": "npm install --prefix ./client && npm run build --prefix ./client",
+        "lint:check": "npx eslint **/**/*.js --ignore-path .gitignore --ignore-path  .prettierrc.json --ignore-path  .eslintrc.json --no-error-on-unmatched-pattern",
+        "lint:fix": "npx eslint --fix **/**/*.js --ignore-path .gitignore --ignore-path  .prettierrc.json --ignore-path  .eslintrc.json --no-error-on-unmatched-pattern",
+        "format:check": "npx prettier --check . --ignore-path .gitignore --ignore-path  .prettierrc.json --ignore-path  .eslintrc.json",
+        "format:fix": "npx prettier --write . --ignore-path .gitignore --ignore-path  .prettierrc.json --ignore-path  .eslintrc.json",
+        "browser_sync": "browser-sync start --server --files \"php/*.php,css/*.css,js/*.js,html/*.html,*.*\""
+    },
+    "dependencies": {
+        "dotenv": "^10.0.0",
+        "eslint-config-metarhia": "^7.0.1",
+        "eslint-plugin-import": "^2.24.2",
+        "express": "^4.17.1",
+        "nodemailer": "^6.7.0",
+        "path": "^0.12.7"
+    },
+    "devDependencies": {
+        "eslint": "^7.32.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "eslint-plugin-sonarjs": "^0.11.0",
+        "prettier": "^2.5.1",
+        "nodemon": "^2.0.15"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
 }

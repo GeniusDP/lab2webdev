@@ -1,67 +1,67 @@
 .Modal {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: rgba(0, 0, 0, 0.5);
-	z-index: 1000;
-	display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none;
 }
 
 .modal-active {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-content {
-	width: 50%;
-	min-height: 250px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	border-radius: 20px;
-	box-shadow: 0 0 20px 0 black;
-	background: var(--main-white);
+    width: 50%;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 0 20px 0 black;
+    background: var(--main-white);
 }
 
 input,
 button {
-	margin: 10px;
+    margin: 10px;
 }
 
 button {
-	min-width: 100px;
+    min-width: 100px;
 }
 
 @keyframes op {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .modal.entering {
-	animation: op 1s forwards;
+    animation: op 1s forwards;
 }
 
 .modal.entered {
 }
 
 .modal.exiting {
-	animation: op 1s reverse;
+    animation: op 1s reverse;
 }
 
 .modal.exited {
 }
 
 .button-group {
-	display: flex;
-	flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
