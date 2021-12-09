@@ -11,7 +11,8 @@
         "lint:fix": "npx eslint --fix **/**/*.js --ignore-path .gitignore --ignore-path  .prettierrc.json --ignore-path  .eslintrc.json --no-error-on-unmatched-pattern",
         "format:check": "npx prettier --check . --ignore-path .gitignore --ignore-path  .prettierrc.json --ignore-path  .eslintrc.json",
         "format:fix": "npx prettier --write . --ignore-path .gitignore --ignore-path  .prettierrc.json --ignore-path  .eslintrc.json",
-        "browser_sync": "browser-sync start --server --files \"php/*.php,css/*.css,js/*.js,html/*.html,*.*\""
+        "browser_sync": "browser-sync start --server --files \"php/*.php,css/*.css,js/*.js,html/*.html,*.*\"",
+        "prepare": "husky install"
     },
     "dependencies": {
         "dotenv": "^10.0.0",
@@ -25,8 +26,9 @@
         "eslint": "^7.32.0",
         "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-sonarjs": "^0.11.0",
-        "prettier": "^2.5.1",
-        "nodemon": "^2.0.15"
+        "husky": "^7.0.4",
+        "nodemon": "^2.0.15",
+        "prettier": "^2.5.1"
     },
     "keywords": [],
     "author": "",
