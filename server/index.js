@@ -1,8 +1,8 @@
 /* eslint-env node */
-const express = require('express');
-const nodemailer = require('nodemailer');
-const path = require('path');
-require('dotenv').config();
+const express = require("express");
+const nodemailer = require("nodemailer");
+const path = require("path");
+require("dotenv").config();
 class Mailer {
     constructor(name, surname, text, emailFrom, passwordFrom, emailTo) {
         this.emailFrom = emailFrom;
@@ -15,7 +15,7 @@ class Mailer {
 
     send() {
         const transporter = nodemailer.createTransport({
-            service: 'gmail',
+            service: "gmail",
             auth: {
                 user: this.emailFrom,
                 pass: this.passwordFrom,
@@ -34,7 +34,7 @@ class Mailer {
             if (error) {
                 console.log(error.toString());
             } else {
-                console.log('Email sent' + info.response.toString());
+                console.log("Email sent" + info.response.toString());
             }
         });
     }
@@ -44,7 +44,7 @@ const PORT = process.env.PORT;
 const app = express();
 app.use(express.json());
 // Have Node serve the files for our built React app
-app.use(express.static(path.resolve(__dirname, '../client/build')));
+app.use(express.static(path.resolve(__dirname, "../client/build")));
 
 const emailFrom = process.env.EMAIL_FROM;
 const passwordFrom = process.env.PASSWORD_FROM;
@@ -53,17 +53,17 @@ const emailTo = process.env.EMAIL_TO; //by default
 const IPAddressesAndTimers = new Map();
 
 let requiredInfo = {
-    name: '',
-    surname: '',
-    text: '',
-    emailTo: '',
+    name: "",
+    surname: "",
+    text: "",
+    emailTo: "",
 };
 
 const timer = 30000;
-app.post('/send_info', (request, response) => {
+app.post("/send_info", (request, response) => {
     const pt = request.socket.remoteAddress || null;
-    const ip = request.headers['x-forwarded-for'] || pt;
-    console.log('<<<<<<<< ip address: ' + ip); //this is an ip address of user
+    const ip = request.headers["x-forwarded-for"] || pt;
+    console.log("<<<<<<<< ip address: " + ip); //this is an ip address of user
     if (!IPAddressesAndTimers.get(ip)) {
         //this user did not send any mail
         IPAddressesAndTimers.set(ip, 0);
@@ -84,15 +84,15 @@ app.post('/send_info', (request, response) => {
         console.log(requiredInfo);
         mailer.send();
         IPAddressesAndTimers.set(ip, Date.now());
-        response.status(200).send({ permission: 'yes', sent: true });
+        response.status(200).send({ permission: "yes", sent: true });
     } else {
-        response.status(429).send({ permission: 'no', sent: false });
+        response.status(429).send({ permission: "no", sent: false });
     }
 });
 
 // All other GET requests not handled before will return our React app
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
 });
 
 app.listen(PORT, () => {

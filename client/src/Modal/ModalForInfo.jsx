@@ -1,5 +1,5 @@
-import React from 'react';
-import './Modal.css';
+import React from "react";
+import "./Modal.css";
 
 const ModalForInfo = ({ children, isOpen, setIsOpen }) => {
     const buttonOkOnClick = (event) => {
@@ -7,13 +7,13 @@ const ModalForInfo = ({ children, isOpen, setIsOpen }) => {
         setIsOpen(false);
     };
 
-    const classes = ['Modal'];
+    const classes = ["Modal"];
     if (isOpen) {
-        classes.push('modal-active');
+        classes.push("modal-active");
     }
     return (
-        <div className={classes.join(' ')} onClick={() => setIsOpen(false)}>
-            <div className={'modal-content'} onClick={(event) => event.stopPropagation()}>
+        <div className={classes.join(" ")} onClick={() => setIsOpen(false)}>
+            <div className={"modal-content"} onClick={(event) => event.stopPropagation()}>
                 {children}
                 <button onClick={buttonOkOnClick}>Ok</button>
             </div>

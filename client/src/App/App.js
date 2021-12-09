@@ -1,20 +1,20 @@
-import './App.css';
-import React, { useState } from 'react';
-import Header from '../Header/Header.jsx';
-import ModalWindow from '../Modal/ModalWindow.jsx';
-import Incorrect from '../Incorrect/Incorrect.jsx';
-import Loader from '../Loader/Loader.jsx';
-import ModalForInfo from '../Modal/ModalForInfo.jsx';
+import "./App.css";
+import React, { useState } from "react";
+import Header from "../Header/Header.jsx";
+import ModalWindow from "../Modal/ModalWindow.jsx";
+import Incorrect from "../Incorrect/Incorrect.jsx";
+import Loader from "../Loader/Loader.jsx";
+import ModalForInfo from "../Modal/ModalForInfo.jsx";
 
 function App() {
-    const [yourName, setYourName] = useState('');
-    const [yourSurname, setYourSurname] = useState('');
-    const [text, setText] = useState('');
+    const [yourName, setYourName] = useState("");
+    const [yourSurname, setYourSurname] = useState("");
+    const [text, setText] = useState("");
     const [confirmIsOpen, setConfirmIsOpen] = useState(false);
     const [submitEvent, setSubmitEvent] = useState({});
     const [buttonsDisabled, setButtonsDisabled] = useState(false); //during waiting for server response
     const [modalForInfoIsOpen, setModalForInfoIsOpen] = useState(false);
-    const [infoText, setInfoText] = useState('');
+    const [infoText, setInfoText] = useState("");
 
     function textValidator(string) {
         //if not empty => so good:)
@@ -53,32 +53,32 @@ function App() {
             setSubmitEvent(event);
             setConfirmIsOpen(true);
         } else {
-            setInfoText('You have to validate form before sending email');
+            setInfoText("You have to validate form before sending email");
             setModalForInfoIsOpen(true);
         }
     };
 
     const buttonResetOnClick = (event) => {
         event.preventDefault();
-        setYourSurname('');
-        setText('');
-        setYourName('');
+        setYourSurname("");
+        setText("");
+        setYourName("");
     };
 
     function onSubmitHandler(event) {
         event.preventDefault();
-        setYourSurname('');
-        setText('');
-        setYourName('');
+        setYourSurname("");
+        setText("");
+        setYourName("");
         setButtonsDisabled(true);
         setLoaderIsVisible(true);
-        fetch('/send_info', {
-            method: 'POST',
+        fetch("/send_info", {
+            method: "POST",
             headers: new Headers({
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
+                Accept: "application/json",
+                "Content-Type": "application/json",
             }),
-            mode: 'same-origin',
+            mode: "same-origin",
             body: JSON.stringify({
                 name: yourName,
                 surname: yourSurname,
@@ -91,30 +91,30 @@ function App() {
             .then(function (body) {
                 setButtonsDisabled(false);
                 setLoaderIsVisible(false);
-                if (body.permission === 'no') {
+                if (body.permission === "no") {
                     setInfoText(
-                        'You cannot write a new letter more the 1 time per 30 sec. Try later.'
+                        "You cannot write a new letter more the 1 time per 30 sec. Try later."
                     );
                     setModalForInfoIsOpen(true);
                     return;
                 }
                 if (body.sent) {
-                    setInfoText('Your letter was sent.');
+                    setInfoText("Your letter was sent.");
                     setModalForInfoIsOpen(true);
                     return;
                 }
                 if (!body.sent) {
                     setInfoText(
-                        'Sending of your letter was aborted (look through your password and e-mail to fix the problem)' +
+                        "Sending of your letter was aborted (look through your password and e-mail to fix the problem)" +
                             'Also problem may be if you did not gave a permission to use "strange programs" to send e-mails if ' +
-                            'your google account.'
+                            "your google account."
                     );
                     setModalForInfoIsOpen(true);
                     return;
                 }
             })
             .catch((error) => {
-                setInfoText('Something went wrong with server...\n Try later\n' + error);
+                setInfoText("Something went wrong with server...\n Try later\n" + error);
                 setLoaderIsVisible(false);
                 setModalForInfoIsOpen(true);
             });
@@ -143,28 +143,28 @@ function App() {
                 <h1>{infoText}</h1>
             </ModalForInfo>
             <input
-                type={'text'}
+                type={"text"}
                 value={yourName}
-                placeholder={'your name'}
+                placeholder={"your name"}
                 onChange={inputNameOnChange}
             />
-            {!nameValidated && <Incorrect type={'name'} />}
+            {!nameValidated && <Incorrect type={"name"} />}
 
             <input
-                type={'text'}
+                type={"text"}
                 value={yourSurname}
-                placeholder={'your surname'}
+                placeholder={"your surname"}
                 onChange={inputSurnameOnChange}
             />
-            {!surnameValidated && <Incorrect type={'surname'} />}
+            {!surnameValidated && <Incorrect type={"surname"} />}
 
             <textarea value={text} maxLength={500} onChange={textareaOnChange} />
-            {!textValidated && <Incorrect type={'text'} />}
-            <button disabled={buttonsDisabled} type={'submit'} onClick={buttonSendOnClick}>
+            {!textValidated && <Incorrect type={"text"} />}
+            <button disabled={buttonsDisabled} type={"submit"} onClick={buttonSendOnClick}>
                 Send!
             </button>
 
-            <button disabled={buttonsDisabled} type={'reset'} onClick={buttonResetOnClick}>
+            <button disabled={buttonsDisabled} type={"reset"} onClick={buttonResetOnClick}>
                 Cancel!
             </button>
         </form>
