@@ -30,11 +30,7 @@ function App() {
     const inputSurnameOnChange = (event) => {
         event.preventDefault();
         setYourSurname(event.target.value);
-        if (textValidator(event.target.value)) {
-            setSurnameValidated(true);
-        } else {
-            setSurnameValidated(false);
-        }
+        setSurnameValidated(textValidator(event.target.value));
     };
 
     const textareaOnChange = (event) => {
