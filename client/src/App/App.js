@@ -81,7 +81,7 @@ function App() {
             .then(function (body) {
                 setButtonsDisabled(false);
                 setLoaderIsVisible(false);
-                if (body.permission === "no") {
+                if (body.permission === "no" || !body.sent) {
                     setInfoText(
                         "You cannot write a new letter more the 1 time per 30 sec. Try later."
                     );
@@ -90,13 +90,6 @@ function App() {
                 }
                 if (body.sent) {
                     setInfoText("Your letter was sent.");
-                    setModalForInfoIsOpen(true);
-                    return;
-                }
-                if (!body.sent) {
-                    setInfoText(
-                        "You cannot write a new letter more the 1 time per 30 sec. Try later."
-                    );
                     setModalForInfoIsOpen(true);
                     return;
                 }
