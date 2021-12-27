@@ -66,6 +66,7 @@ function App() {
         setLoaderIsVisible(true);
         fetch("/send_info", {
             method: "POST",
+            mode: "same-origin",
             headers: new Headers({
                 Accept: "application/json",
                 "Content-Type": "application/json",
