@@ -7,7 +7,6 @@
         "react-dom": "^17.0.2",
         "react-scripts": "4.0.3",
         "react-transition-group": "^4.4.2",
-        "sass": "^1.43.2",
         "web-vitals": "^1.1.2"
     },
     "proxy": "http://localhost:5000",
@@ -34,6 +33,7 @@
         ]
     },
     "devDependencies": {
-        "eslint-plugin-sonarjs": "^0.10.0"
+        "eslint-plugin-sonarjs": "^0.10.0",
+        "sass": "^1.43.2"
     }
 }

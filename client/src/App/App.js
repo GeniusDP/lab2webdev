@@ -78,7 +78,6 @@ function App() {
                 Accept: "application/json",
                 "Content-Type": "application/json",
             }),
-            mode: "same-origin",
             body: JSON.stringify({
                 name: yourName,
                 surname: yourSurname,
