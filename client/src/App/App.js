@@ -66,9 +66,7 @@ function App() {
         setLoaderIsVisible(true);
         fetch("/send_info", {
             method: "POST",
-            mode: "same-origin",
             headers: new Headers({
-                Accept: "application/json",
                 "Content-Type": "application/json",
             }),
             body: JSON.stringify({
@@ -97,9 +95,7 @@ function App() {
                 }
                 if (!body.sent) {
                     setInfoText(
-                        "Sending of your letter was aborted (look through your password and e-mail to fix the problem)" +
-                            'Also problem may be if you did not gave a permission to use "strange programs" to send e-mails if ' +
-                            "your google account."
+                        "You cannot write a new letter more the 1 time per 30 sec. Try later."
                     );
                     setModalForInfoIsOpen(true);
                     return;
