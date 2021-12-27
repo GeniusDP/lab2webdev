@@ -24,11 +24,7 @@ function App() {
     const inputNameOnChange = (event) => {
         event.preventDefault();
         setYourName(event.target.value);
-        if (textValidator(event.target.value)) {
-            setNameValidated(true);
-        } else {
-            setNameValidated(false);
-        }
+        setNameValidated(textValidator(event.target.value));
     };
 
     const inputSurnameOnChange = (event) => {
