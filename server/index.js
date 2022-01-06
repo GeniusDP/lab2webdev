@@ -66,10 +66,9 @@ app.post("/send_info", (request, response) => {
     const pt = request.socket.remoteAddress || null;
     const ip = request.headers["x-forwarded-for"] || pt;
     console.log("<<<<<<<< ip address: " + ip); //this is an ip address of user
-    if (IPAddressesAndTimers.get(ip) || 0) {
-        //this user did not send any mail
-        IPAddressesAndTimers.set(ip, 0);
-    }
+
+    //this user did not send any mail
+    if (!IPAddressesAndTimers.get(ip)) IPAddressesAndTimers.set(ip, 0);
 
     //calculating permission and sending mail
     if (Date.now() - IPAddressesAndTimers.get(ip) > timer) {
@@ -90,6 +89,7 @@ app.post("/send_info", (request, response) => {
             response.status(500).send({ permission: "no, sir!", sent: false });
         }
         IPAddressesAndTimers.set(ip, Date.now());
+        //response.status(500).send({ permission: "no, sir!", sent: false });
         response.status(200).send({ permission: "yes, sir!", sent: true });
     } else {
         response.status(429).send({ permission: "no, sir!", sent: false });

@@ -95,7 +95,7 @@ function App() {
             })
             .catch((error) => {
                 setInfoText(
-                    "Did not sent your mail. Something went wrong with server...\n Try later\n"
+                    "Did not sent your mail. Cannot connect to the server...\n Try later\n"
                 );
                 setLoaderIsVisible(false);
             })
