@@ -66,7 +66,7 @@ app.post("/send_info", (request, response) => {
     const pt = request.socket.remoteAddress || null;
     const ip = request.headers["x-forwarded-for"] || pt;
     console.log("<<<<<<<< ip address: " + ip); //this is an ip address of user
-    if (!IPAddressesAndTimers.get(ip)) {
+    if (IPAddressesAndTimers.get(ip) || 0) {
         //this user did not send any mail
         IPAddressesAndTimers.set(ip, 0);
     }
