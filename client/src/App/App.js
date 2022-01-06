@@ -85,22 +85,19 @@ function App() {
                     setInfoText(
                         "You cannot write a new letter more the 1 time per 30 sec. Try later."
                     );
-                    //setModalForInfoIsOpen(true);
                     return;
                 }
+
                 if (body.sent) {
                     setInfoText("Your letter was sent.");
-                    //setModalForInfoIsOpen(true);
                     return;
                 }
             })
             .catch((error) => {
                 setInfoText(
-                    "Did not sent your mail. Something went wrong with server...\n Try later\n" +
-                        error
+                    "Did not sent your mail. Something went wrong with server...\n Try later\n"
                 );
                 setLoaderIsVisible(false);
-                //setModalForInfoIsOpen(true);
             })
             .finally(() => {
                 setModalForInfoIsOpen(true);

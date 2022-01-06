@@ -33,7 +33,9 @@ class Mailer {
         transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
                 console.log(error.toString());
+                throw Error(error);
             } else {
+                //logs
                 console.log("Email sent" + info.response.toString());
             }
         });
@@ -82,7 +84,11 @@ app.post("/send_info", (request, response) => {
             emailTo
         );
         console.log(requiredInfo);
-        mailer.send();
+        try {
+            mailer.send();
+        } catch {
+            response.status(500).send({ permission: "no, sir!", sent: false });
+        }
         IPAddressesAndTimers.set(ip, Date.now());
         response.status(200).send({ permission: "yes, sir!", sent: true });
     } else {
