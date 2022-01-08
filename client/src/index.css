@@ -1,0 +1,57 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    --button-on-hover: #8282f6;
+    --main-blue: #4848f2;
+    --main-white: cornsilk;
+}
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+        "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+html,
+body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    background: var(--main-blue);
+}
+
+.root {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: var(--main-white);
+    border: 0px solid black;
+    border-radius: 20px;
+}
+
+input,
+textarea {
+    border: 0px solid black;
+    border-radius: 5px;
+    box-shadow: 0 0 2px 0 black;
+}
+
+button {
+    background: var(--main-blue);
+    color: var(--main-white);
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: var(--button-on-hover);
+}

@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --app_bg: rgba(0, 0, 0, 0.5);
+}
+
+.app {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--app_bg);
+    z-index: 1000;
+    display: none;
+}
+
+.visible {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrap {
+    diplay: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px var(--main-white) dashed;
+    box-shadow: 0 0 3px 0 var(--main-white);
+    animation: ani 1s forwards;
+}
+
+.circle.entering {
+    animation: ani 0.3s forwards;
+}
+
+.circle.entered {
+    animation: rotation 1s infinite;
+}
+
+.circle.exiting {
+    animation: ani 0.3s reverse;
+}
+
+@keyframes ani {
+    0% {
+        opacity: 0%;
+        transform: translateY(-500px);
+    }
+    50% {
+        opacity: 1%;
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
